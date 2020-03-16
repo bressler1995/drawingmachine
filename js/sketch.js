@@ -1,3 +1,4 @@
+let mycanvas;
 let ellipserecord = [];
 let mysize = 20;
 let clear_opt, save_opt;
@@ -7,10 +8,11 @@ function preload() {
 }
 
 function setup() {
-    let mycanvas = createCanvas(400, 400);
+    mycanvas = createCanvas(400, 400);
     clear_opt = select('#clear_opt');
     clear_opt.mousePressed(clearEverything);
     save_opt = select('#save_opt');
+    save_opt.mousePressed(saveEverything)
 }
 
 function draw() {
@@ -28,4 +30,8 @@ function mouseDragged() {
 
 function clearEverything() {
     ellipserecord = [];
+}
+
+function saveEverything() {
+    saveCanvas(mycanvas, 'myWorkOfArt', 'jpg');
 }
